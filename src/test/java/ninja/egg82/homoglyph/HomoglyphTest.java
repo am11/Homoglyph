@@ -6,6 +6,25 @@ import org.junit.jupiter.api.Test;
 
 public class HomoglyphTest {
     @Test
+    public void testAtoZASCII() throws IOException {
+        HomoglyphHelper helper = HomoglyphHelper.create();
+
+        String A2Z_ASCII = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String a2z_ASCII = "abcdefghijklmnopqrstuvwxyz";
+
+        Assertions.assertTrue(helper.equals(A2Z_ASCII, A2Z_ASCII));
+        Assertions.assertTrue(helper.equals(a2z_ASCII, a2z_ASCII));
+        
+        // try{
+        // Assertions.assertEquals(A2Z_ASCII, helper.toASCII(A2Z_ASCII));
+        // }catch (Exception ex){ex.printStackTrace();}
+        
+        try{
+        Assertions.assertEquals(a2z_ASCII, helper.toASCII(a2z_ASCII));
+        }catch (Exception ex){ex.printStackTrace();}
+    }
+
+    @Test
     public void testASCII() throws IOException {
         HomoglyphHelper helper = HomoglyphHelper.create();
 
